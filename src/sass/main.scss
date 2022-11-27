@@ -1,11 +1,21 @@
 @import './color';
-@import './components';
 @import './mixin';
+@import './components';
+@import './components-js';
 
-.title__page {
-	display: flex;
-	justify-content: center;
-	width: 100%;
+header {
+	background-color: $whiteDark;
+	border-radius: 0 0 15px 15px;
+
+	.title__page {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		& h1 {
+			color: $main-color;
+		}
+	}
 }
 
 .table {
@@ -14,34 +24,36 @@
 	align-items: center;
 
 	&__info {
-		margin: 0 1rem;
-
 		&__form {
-			&__text p {
-				padding: 0.5em 1em;
+			position: relative;
+			margin: 5em 2em;
+			padding: 1em 0;
+			&::after {
+				@include glass;
 			}
 
-			&__text--one,
-			&__text--two,
-			&__text--three {
+			&__text p {
+				padding: 0 1em;
+			}
+
+
+			&__text .structure {
+				margin-bottom: 2em;
+			}
+
+			&__text {
 				position: relative;
-				margin: 1rem 0;
-				padding: 0.5em;
 				background-color: transparent;
 				overflow: hidden;
-
-				&::after {
-					@include glass;
-				}
 			}
 		}
 	}
 
 	&__words {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		max-width: 100%;
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
+		width: 90%;
 	}
 
 	&__word-pl {
@@ -53,60 +65,58 @@
 
 	&__word-ang {
 		position: relative;
-		color: transparent;
-		transform: rotateX(180deg);
 		transition: color 1.7s, transform 1.5s, opacity 2.3s;
 		cursor: pointer;
-		opacity: 0;
 	}
 }
 
-.text-see {
-	margin: 0;
-	padding: 0;
-	height: 0;
-	opacity: 0;
-}
-
-.icons {
+.icons__arrow {
+	position: absolute;
+	left: 50%;
+	bottom: -20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: .5em auto 1em;
 	width: 40px;
 	height: 40px;
-	border: 1px solid $yellow-secend;
+	background-color: $whiteDark;
 	border-radius: 100%;
+	transform: translateX(-50%);
 	cursor: pointer;
 
-	&:hover {
-		transform: scale(1.3);
-
-		& .fa-solid {
-			color: $yellow;
-		}
+	& p {
+		color: $main-color;
+		text-align: center;
+		font-weight: bold;
 	}
 
-	&-element {
-		color: $white;
-		transform: rotate(-90deg);
-		
-	}
+	// &:hover {
+	// 	transform: translateX(-50%) scale(1.3);
+	// }
 }
 
-.icons-rotate {
-	transform: rotate(90deg);
+.icon__plus,
+.icon__minus {
+	height: 100%;
+	margin: 0 .3em;
+	padding: 0 .2em;
+	color: $whiteDark;
+	font-size: 20px;
+	cursor: pointer;
 }
 
-.ang-see {
-	color: $main-color;
-	transform: rotateX(0deg);
-	opacity: 1;
+.table__words__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2.5rem 0 .5rem;
+}
 
-	&::after {
-		@include addons-background;
-		background-color: $yellow;
-	}
+.table__with__words {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
 }
 
 // 576px

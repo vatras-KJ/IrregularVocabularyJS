@@ -1,0 +1,39 @@
+.text-see {
+	margin: 0;
+	padding: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.icons-rotate {
+	transform: rotate(180deg);
+}
+
+.ang__see-no--one,
+.ang__see-no--two,
+.ang__see-no--three {
+	color: transparent;
+	transform: rotateX(180deg);
+	opacity: 0;
+}
+
+.ang__see--one,
+.ang__see--two,
+.ang__see--three {
+	color: $main-color;
+	transform: rotateX(0deg);
+	opacity: 1;
+
+	&::after {
+		@include addons-background;
+		background-color: $yellow;
+	}
+}
+
+.title-margin {
+	margin-bottom: 2em;
+}
+
+.title-margin-second {
+	margin-bottom: 1em;
+}

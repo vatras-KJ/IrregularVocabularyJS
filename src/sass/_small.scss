@@ -1,0 +1,37 @@
+@media (min-width: 690px) {
+
+	table {
+		font-size: 1.8rem;
+
+		tr,
+		th {
+			padding: 0 0.5em;
+			height: 6rem;
+		}
+	}
+
+	.table {
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		&__info {
+			&__form__text {
+				height: auto;
+				opacity: 1;
+			}
+		}
+
+		&__with__words {
+			width: 100%;
+		}
+	}
+
+    .title-margin {
+        margin-bottom: 1em;
+    }
+
+	.icons__arrow {
+		display: none;
+	}
+}
