@@ -127,3 +127,12 @@ elementPlusIcon[2].addEventListener('click', seeWordThree)
 elementMinusIcon[2].addEventListener('click', noSeeWordThree)
 
 
+// Zmienna data
+const footerYear = document.querySelector('.footer__year')
+
+const handleCurrentYear = () => {
+	const year = new Date().getFullYear()
+	footerYear.innerText = year
+}
+
+handleCurrentYear()

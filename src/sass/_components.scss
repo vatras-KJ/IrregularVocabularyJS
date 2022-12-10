@@ -6,13 +6,17 @@
 
 html {
 	font-size: 10px;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Quicksand', 'Montserrat', sans-serif;
 }
 
 body {
 	width: 100%;
 	min-height: 100vh;
 	background-color: $main-color;
+}
+
+main {
+	padding-top: 100px;
 }
 
 h1 {
