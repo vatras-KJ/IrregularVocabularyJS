@@ -19,19 +19,19 @@ const angSeeThree = document.querySelectorAll('.ang__see--three')
 
 // FUNKCJE DLA ROZWIJANEGO TEKSTU
 const seeText0 = () => {
-	textForms[0].classList.toggle('text-see')
+	textForms[0].classList.toggle('text-no-see')
 	titleForms[0].classList.toggle('title-margin')
 	titleForms[0].classList.toggle('title-margin-second')
 	arrowIcons[0].classList.toggle('icons-rotate')
 }
 const seeText1 = () => {
-	textForms[1].classList.toggle('text-see')
+	textForms[1].classList.toggle('text-no-see')
 	titleForms[1].classList.toggle('title-margin')
 	titleForms[1].classList.toggle('title-margin-second')
 	arrowIcons[1].classList.toggle('icons-rotate')
 }
 const seeText2 = () => {
-	textForms[2].classList.toggle('text-see')
+	textForms[2].classList.toggle('text-no-see')
 	titleForms[2].classList.toggle('title-margin')
 	titleForms[2].classList.toggle('title-margin-second')
 	arrowIcons[2].classList.toggle('icons-rotate')
