@@ -1,21 +1,9 @@
 // POBRANE ELEMENTY
 const elementArrowIcon = document.querySelectorAll('.icons__arrow')
-const elementPlusIcon = document.querySelectorAll('.icon__plus')
-const elementMinusIcon = document.querySelectorAll('.icon__minus')
 const arrowIcons = document.querySelectorAll('.icons__arrow p')
 
 const titleForms = document.querySelectorAll('.table__info__form__title')
 const textForms = document.querySelectorAll('.table__info__form__text')
-
-const allAngWord = document.querySelectorAll('.table__word-ang')
-
-const angSeeNoOne = document.querySelectorAll('.ang__see-no--one')
-const angSeeNoTwo = document.querySelectorAll('.ang__see-no--two')
-const angSeeNoThree = document.querySelectorAll('.ang__see-no--three')
-
-const angSeeOne = document.querySelectorAll('.ang__see--one')
-const angSeeTwo = document.querySelectorAll('.ang__see--two')
-const angSeeThree = document.querySelectorAll('.ang__see--three')
 
 // FUNKCJE DLA ROZWIJANEGO TEKSTU
 const seeText0 = () => {
@@ -40,92 +28,135 @@ const seeText2 = () => {
 elementArrowIcon[0].addEventListener('click', seeText0)
 elementArrowIcon[1].addEventListener('click', seeText1)
 elementArrowIcon[2].addEventListener('click', seeText2)
+// pobieramy wszytskie trzy pargarafy (icony) strzałek
+const arrowsIcons = document.querySelectorAll('.icons__arrow p')
+// pobieramy wszytskie kontenery z informacjami o budowie czasowników
+const infoTables = document.querySelectorAll('.table__info__form__text')
+// pobieramy wszytskie 3 tabele
+const tables = document.querySelectorAll('tbody')
+// pobieramy wszytskie wiersze
+const words = document.querySelectorAll('th')
+// pobieramy trzy ikony plusa
+const plusIcons = document.querySelectorAll('.icon__plus')
+// pobieramy trzy ikony minusa
+const minusIcons = document.querySelectorAll('.icon__minus')
 
-// FUNKCJA DO POJEDYNCZYCH SŁÓW 
-for (let word of allAngWord) {
-	const seeAngWord = (e) => {
-		if(e.target.classList.contains('ang__see--one') || e.target.classList.contains('ang__see-no--one')) {
-			e.target.classList.toggle('ang__see--one')
-			e.target.classList.toggle('ang__see-no--one')
-		} else if (e.target.classList.contains('ang__see--two') || e.target.classList.contains('ang__see-no--two')) {
-			e.target.classList.toggle('ang__see--two')
-			e.target.classList.toggle('ang__see-no--two')
-		} else if (e.target.classList.contains('ang__see--three') || e.target.classList.contains('ang__see-no--three')) {
-			e.target.classList.toggle('ang__see--three')
-			e.target.classList.toggle('ang__see-no--three')
-		}
-	}
+arrowsIcons.forEach(arrow => {
+	// nasłuchujemy rodzica icony czyli całego div'a
+	arrow.parentElement.addEventListener('click', () => {
+		// paragraf jako icona dostaje clase która ją obraca
+		arrow.classList.toggle('icons-rotate')
 
-	word.addEventListener('click', seeAngWord)
-}
+		const arrowIconID = arrow.parentElement.dataset.id
 
-// FUNKCJA DO ZBIOROWYCH SŁÓW 
-const seeWordOne = () => {
-	angSeeNoOne.forEach(wordOne => {
-		if (wordOne.classList.contains('ang__see-no--one')) {
-			wordOne.classList.toggle('ang__see--one')
-			wordOne.classList.toggle('ang__see-no--one')
-		}
-	})
-}
-
-const noSeeWordOne = () => {
-	const angSeeOne = document.querySelectorAll('.ang__see--one')
-	angSeeOne.forEach(wordOneNo => {
-		if (wordOneNo.classList.contains('ang__see--one')) {
-			wordOneNo.classList.toggle('ang__see--one')
-			wordOneNo.classList.toggle('ang__see-no--one')
+		// if przesyłający odpowiedni parametr do funkcji zalezności od kliknietej sztrałki
+		if (arrowIconID === 'one-arrow') {
+			keepText('one')
+		} else if (arrowIconID === 'two-arrow') {
+			keepText('two')
+		} else if (arrowIconID === 'three-arrow') {
+			keepText('three')
 		}
 	})
-}
+}) //END
 
-const seeWordTwo = () => {
-	angSeeNoTwo.forEach(wordTwo => {
-		if (wordTwo.classList.contains('ang__see-no--two')) {
-			wordTwo.classList.toggle('ang__see--two')
-			wordTwo.classList.toggle('ang__see-no--two')
+// funkcja ukrywająca tekst informacyjny zalezności, która strzałka została kliknieta
+const keepText = (number) => {
+	infoTables.forEach(infT => {
+		const infoData = infT.dataset.name
+		
+		if(infoData === `info-${number}`) {
+			infT.classList.toggle('not__see--text')
+			
+		}
+
+	})
+} // END
+
+// wybór pojedyczego słówka ze wszytskich tabeli
+words.forEach(word => {
+	word.addEventListener('click', e => {
+		e.target.classList.toggle('see--row')
+	})
+}) // END
+
+// nadanie na icony plusa i uruchomienie funkcji z odpowiednim parametrm
+plusIcons.forEach(plusIcon => {
+	// przypisanie data-id icon plus
+	const plusIconID = plusIcon.dataset.id
+
+	// nasłuchiwanie ikon plus na kliknięcie
+	// odpowiednia icona z data-id uruchamia odpowiednią funkcje
+	plusIcon.addEventListener('click', () => {
+		if (plusIconID === 'one-plus') {
+			showWords('one')
+		} else if (plusIconID === 'two-plus') {
+			showWords('two')
+		} else if (plusIconID === 'three-plus') {
+			showWords('three')
 		}
 	})
-}
+}) // END
 
-const noSeeWordTwo = () => {
-	const angSeeTwo = document.querySelectorAll('.ang__see--two')
-	angSeeTwo.forEach(wordTwoNo => {
-		if (wordTwoNo.classList.contains('ang__see--two')) {
-			wordTwoNo.classList.toggle('ang__see--two')
-			wordTwoNo.classList.toggle('ang__see-no--two')
+// nasłuchiwanie ikon minusa na kliknięcie
+// odpowiednia icona z data-id uruchamia odpowiednią funkcje
+minusIcons.forEach(minusIcon => {
+	const minusIconID = minusIcon.dataset.id
+
+	minusIcon.addEventListener('click', () => {
+		if (minusIconID === 'one-minus') {
+			keepWords('one')
+		} else if (minusIconID === 'two-minus') {
+			keepWords('two')
+		} else if (minusIconID === 'three-minus') {
+			keepWords('three')
 		}
 	})
-}
+}) // END
 
-const seeWordThree = () => {
-	angSeeNoThree.forEach(wordThree => {
-		if (wordThree.classList.contains('ang__see-no--three')) {
-			wordThree.classList.toggle('ang__see--three')
-			wordThree.classList.toggle('ang__see-no--three')
+// funkcja odkrywająca wszytskie słówka z danej tabeli
+const showWords = number => {
+	tables.forEach(table => {
+		if (table.dataset.name === `table-${number}`) {
+			const wordsOne = table.querySelectorAll('.table__word-ang')
+			wordsOne.forEach(wordOne => {
+				wordOne.classList.add('see--row')
+			})
+		} else if (table.dataset.name === `table-${number}`) {
+			const wordsTwo = table.querySelectorAll('.table__word-ang')
+			wordsTwo.forEach(wordTwo => {
+				wordTwo.classList.add('see--row')
+			})
+		} else if (table.dataset.name === `table-${number}`) {
+			const wordsThree = table.querySelectorAll('.table__word-ang')
+			wordsThree.forEach(wordThree => {
+				wordThree.classList.add('see--row')
+			})
 		}
 	})
-}
+} // END
 
-const noSeeWordThree = () => {
-	const angSeeThree = document.querySelectorAll('.ang__see--three')
-	angSeeThree.forEach(wordThreeNo => {
-		if (wordThreeNo.classList.contains('ang__see--three')) {
-			wordThreeNo.classList.toggle('ang__see--three')
-			wordThreeNo.classList.toggle('ang__see-no--three')
+// funkcja zakrywająca wszytskie słówka z danej tabeli
+const keepWords = number => {
+	tables.forEach(table => {
+		if (table.dataset.name === `table-${number}`) {
+			const wordsOne = table.querySelectorAll('.table__word-ang')
+			wordsOne.forEach(wordOne => {
+				wordOne.classList.remove('see--row')
+			})
+		} else if (table.dataset.name === `table-${number}`) {
+			const wordsTwo = table.querySelectorAll('.table__word-ang')
+			wordsTwo.forEach(wordTwo => {
+				wordTwo.classList.remove('see--row')
+			})
+		} else if (table.dataset.name === `table-${number}`) {
+			const wordsThree = table.querySelectorAll('.table__word-ang')
+			wordsThree.forEach(wordThree => {
+				wordThree.classList.remove('see--row')
+			})
 		}
 	})
-}
-
-elementPlusIcon[0].addEventListener('click', seeWordOne)
-elementMinusIcon[0].addEventListener('click', noSeeWordOne)
-
-elementPlusIcon[1].addEventListener('click', seeWordTwo)
-elementMinusIcon[1].addEventListener('click', noSeeWordTwo)
-
-elementPlusIcon[2].addEventListener('click', seeWordThree)
-elementMinusIcon[2].addEventListener('click', noSeeWordThree)
-
+} // END
 
 // Zmienna data
 const footerYear = document.querySelector('.footer__year')
@@ -135,4 +166,4 @@ const handleCurrentYear = () => {
 	footerYear.innerText = year
 }
 
-handleCurrentYear()
+handleCurrentYear() //END

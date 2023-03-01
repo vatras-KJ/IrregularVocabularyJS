@@ -1,4 +1,4 @@
-.text-no-see {
+.not__see--text {
 	margin: 0;
 	padding: 0;
 	height: 0;
@@ -9,17 +9,13 @@
 	transform: rotate(180deg);
 }
 
-.ang__see-no--one,
-.ang__see-no--two,
-.ang__see-no--three {
+.not__see--row {
 	color: transparent;
 	transform: rotateX(180deg);
 	opacity: 0;
 }
 
-.ang__see--one,
-.ang__see--two,
-.ang__see--three {
+.see--row {
 	color: $main-color;
 	transform: rotateX(0deg);
 	opacity: 1;
@@ -28,12 +24,4 @@
 		@include addons-background;
 		background-color: $yellow;
 	}
-}
-
-.title-margin {
-	margin-bottom: 2em;
-}
-
-.title-margin-second {
-	margin-bottom: 1em;
 }

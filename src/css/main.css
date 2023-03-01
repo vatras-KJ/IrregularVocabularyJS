@@ -88,7 +88,7 @@ table th {
   max-width: 1200px;
 }
 
-.text-see {
+.text-no-see {
   margin: 0;
   padding: 0;
   height: 0;
@@ -143,7 +143,7 @@ table th {
   padding: 2em 0;
   width: 100%;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #fff;
   font-family: "Montserrat", "sans-serif";
   z-index: 100;
 }
@@ -159,12 +159,13 @@ table th {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  width: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 100%;
 }
 .nav__name p {
+  margin: 0 2em;
   color: #222831;
   font-weight: 700;
   text-transform: uppercase;
@@ -229,6 +230,8 @@ header .title__page h1 {
   position: relative;
   background-color: transparent;
   overflow: hidden;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 .table__words {
   width: 90%;
@@ -318,9 +321,36 @@ header .title__page h1 {
   width: 100%;
 }
 
+.footer {
+  min-width: 100%;
+  margin-top: 3em;
+  padding: 1.5em 0;
+  background-color: #fff;
+}
+.footer .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer__text {
+  color: #222831;
+}
+
 @media (min-width: 690px) {
+  .nav__name {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    min-width: 50%;
+  }
   table tr,
-table th {
+  table th {
     padding: 0 0.5em;
     height: 6rem;
   }
