@@ -1,33 +1,4 @@
-// POBRANE ELEMENTY
-const elementArrowIcon = document.querySelectorAll('.icons__arrow')
-const arrowIcons = document.querySelectorAll('.icons__arrow p')
 
-const titleForms = document.querySelectorAll('.table__info__form__title')
-const textForms = document.querySelectorAll('.table__info__form__text')
-
-// FUNKCJE DLA ROZWIJANEGO TEKSTU
-const seeText0 = () => {
-	textForms[0].classList.toggle('text-no-see')
-	titleForms[0].classList.toggle('title-margin')
-	titleForms[0].classList.toggle('title-margin-second')
-	arrowIcons[0].classList.toggle('icons-rotate')
-}
-const seeText1 = () => {
-	textForms[1].classList.toggle('text-no-see')
-	titleForms[1].classList.toggle('title-margin')
-	titleForms[1].classList.toggle('title-margin-second')
-	arrowIcons[1].classList.toggle('icons-rotate')
-}
-const seeText2 = () => {
-	textForms[2].classList.toggle('text-no-see')
-	titleForms[2].classList.toggle('title-margin')
-	titleForms[2].classList.toggle('title-margin-second')
-	arrowIcons[2].classList.toggle('icons-rotate')
-}
-
-elementArrowIcon[0].addEventListener('click', seeText0)
-elementArrowIcon[1].addEventListener('click', seeText1)
-elementArrowIcon[2].addEventListener('click', seeText2)
 // pobieramy wszytskie trzy pargarafy (icony) strzałek
 const arrowsIcons = document.querySelectorAll('.icons__arrow p')
 // pobieramy wszytskie kontenery z informacjami o budowie czasowników
