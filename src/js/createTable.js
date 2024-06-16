@@ -76,7 +76,7 @@ const dataObjectTable = listWords => {
 const startCreate = () => {
 	createTableHead()
 
-	for (let number = 0; number <= listWordsObject.length - 1; number++) {
+	for (let number = 0; number <= listWordsObject.length; number++) {
 		let listWords = listWordsObject[number]
 		dataObjectTable(listWords)
 	}
