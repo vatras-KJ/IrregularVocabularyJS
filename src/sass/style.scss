@@ -1,6 +1,8 @@
+$main: #fff;
 $colorSimple: rgb(170, 190, 233);
 $colorMedium: rgb(140, 160, 235);
-$colorHard: rgb(120, 130, 235);
+$colorHard: #7882eb;
+$colorBtn: #1a52a7;
 
 * {
 	box-sizing: border-box;
@@ -23,11 +25,25 @@ body {
 	max-width: 1200px;
 }
 
+button {
+	border: none;
+	box-shadow: 0 8px 20px rgba(255, 255, 255, 0.116);
+}
+
+h2, h3 {
+	font-size: 3rem;
+}
+
 .table__info__section {
 	min-width: 100%;
-	padding: 2rem;
+	padding: 4rem 2rem;
 	color: #333;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
+
+	&-title {
+		padding: 2rem;
+		text-align: center;
+	}
 
 	& .table__info__form-box {
 		margin: 2rem;
@@ -39,6 +55,7 @@ body {
 			align-items: center;
 			margin: 1rem 0;
 			padding: 2rem 0;
+			font-size: 2rem;
 			cursor: pointer;
 
 			& .fa-plus,
@@ -58,29 +75,34 @@ body {
 }
 
 .table__section-box {
-
 	& .table__section-btns {
+		padding: 4rem 2rem;
 		background-color: #333;
 		color: #fff;
 
-		& .wrapper {
+		&_title {
+			padding: 2rem;
+			text-align: center;
+		}
+
+		&_box {
 			display: flex;
 			flex-direction: column;
 			text-align: center;
-			padding: 4rem 2rem;
+			padding: 2rem 0;
 
 			& p {
-				font-size: 1.6rem;
+				font-size: 1.8rem;
 			}
 
 			& .btn-level,
 			.btn-set {
 				margin: 1rem;
-				padding: 1rem 1.5rem;
-				font-size: 1.2rem;
+				padding: 1.5rem;
+				font-size: 1.4rem;
 				font-weight: bold;
-				color: #333;
-				background-color: #fff;
+				color: $main;
+				background-color: $colorBtn;
 				text-transform: uppercase;
 				border-radius: 12px;
 				cursor: pointer;
@@ -104,14 +126,52 @@ body {
 	}
 
 	.table__section {
-		padding: 2rem 0;
+		padding-top: 2rem;
 		overflow-x: scroll;
 
+		&-title {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 2rem;
+
+			& .table__section-title_popup {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 10%;
+				width: 80%;
+				transform: rotateX(-50%);
+				padding: 4rem;
+				font-size: 1.8rem;
+				background-color: #aabee9;
+				border-radius: 12px;
+				color: #333;
+				border: 3px solid #333;
+			}
+
+			& .fa-circle-info {
+				padding: 0 2rem;
+				font-size: 3rem;
+				cursor: pointer;
+
+				&:hover ~ .table__section-title_popup {
+					display: inline-block;
+				}
+			}
+
+
+			
+		}
+
 		table {
+			margin-top: 2rem;
 			font-size: 1.8rem;
+			color: #333;
+			background-color: #ddd;
 			border-collapse: collapse;
 			border-radius: 6px;
-			color: #333;
 
 			& thead {
 				font-weight: bold;
@@ -163,4 +223,12 @@ body {
 }
 .colorHard {
 	background-color: $colorHard;
+}
+
+footer {
+	padding: 2rem;
+	background-color: #333;
+	color: $main;
+	text-align: center;
+	font-size: 1rem;
 }
