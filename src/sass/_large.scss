@@ -1,0 +1,32 @@
+@media (min-width: 1000px) {
+	.table__section-box {
+		& .table__section-btns {
+			& .wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			&_box {
+				display: inline-block;
+			}
+		}
+	}
+
+	.btn-level,
+	.btn-set {
+		width: 100%;
+	}
+
+	.table__section__structure {
+		padding: 0 4rem;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	.table__section-box .table__section table th {
+		padding: 2rem 1rem;
+	}
+}

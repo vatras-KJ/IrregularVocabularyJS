@@ -1,4 +1,4 @@
-const tableSection = document.querySelector('.table__section')
+const tableSection = document.querySelector('.table__section__structure')
 const cTable = document.createElement('table')
 const cTablehead = document.createElement('thead')
 const cTableBody = document.createElement('tbody')

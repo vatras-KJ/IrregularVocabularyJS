@@ -30,9 +30,13 @@ button {
 	box-shadow: 0 8px 20px rgba(255, 255, 255, 0.116);
 }
 
-h2, h3 {
+h2,
+h3 {
 	font-size: 3rem;
 }
+
+
+
 
 .table__info__section {
 	min-width: 100%;
@@ -54,7 +58,7 @@ h2, h3 {
 			display: flex;
 			align-items: center;
 			margin: 1rem 0;
-			padding: 2rem 0;
+			padding: 2rem;
 			font-size: 2rem;
 			cursor: pointer;
 
@@ -65,10 +69,18 @@ h2, h3 {
 			}
 		}
 
-		& .table__info__form__text-box {
-			padding: 0 2rem 2rem 2rem;
-			& .table__info__form__text__structure {
+		& .table__info__form__text {
+			&-box {
+				padding: 0 2rem 2rem 2rem;
+			}
+
+			&__structure {
 				margin: 1rem 0;
+				color: #1a52a7;
+				& p:first-child {
+					margin-bottom: .3rem;
+					font-weight: bold;
+				}
 			}
 		}
 	}
@@ -127,7 +139,6 @@ h2, h3 {
 
 	.table__section {
 		padding-top: 2rem;
-		overflow-x: scroll;
 
 		&-title {
 			position: relative;
@@ -160,13 +171,14 @@ h2, h3 {
 					display: inline-block;
 				}
 			}
+		}
 
-
-			
+		&__structure{
+			overflow-x: scroll;
 		}
 
 		table {
-			margin-top: 2rem;
+			margin: 2rem 0 4rem 0;
 			font-size: 1.8rem;
 			color: #333;
 			background-color: #ddd;
@@ -232,3 +244,6 @@ footer {
 	text-align: center;
 	font-size: 1rem;
 }
+
+@import './medium';
+@import './large';
