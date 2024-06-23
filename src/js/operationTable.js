@@ -46,7 +46,7 @@ function showOffInfoForms() {
 } //END
 
 // ########################################################
-// ustawienia widoczności grup czasowników zależności od levelu 
+// ustawienia widoczności grup czasowników zależności od levelu
 const showOffWords = (attributeBtnLevelOff, btnTarget) => {
 	const words = document.querySelectorAll('tr')
 	words.forEach(wordItem => {
