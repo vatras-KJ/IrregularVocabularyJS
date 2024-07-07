@@ -3,10 +3,10 @@ const cTable = document.createElement('table')
 const cTablehead = document.createElement('thead')
 const cTableBody = document.createElement('tbody')
 
-
 tableSection.appendChild(cTable)
 cTable.appendChild(cTablehead)
 cTable.appendChild(cTableBody)
+
 
 const createTableHead = () => {
 	const tableHeadText = tableHead.text
@@ -27,15 +27,20 @@ const createTableHead = () => {
 }
 
 const levelSetting = (titleRow, wordLevel) => {
-	if (wordLevel === 1) {
-		titleRow.setAttribute('data-level', 'simple')
-		titleRow.classList.add('colorSimple')
-	} else if (wordLevel === 2) {
-		titleRow.setAttribute('data-level', 'medium')
-		titleRow.classList.add('colorMedium')
-	} else if (wordLevel === 3) {
-		titleRow.setAttribute('data-level', 'hard')
-		titleRow.classList.add('colorHard')
+
+	switch (wordLevel) {
+		case 1:
+			titleRow.setAttribute('data-level', 'simple')
+			titleRow.classList.add('colorSimple')
+			break
+		case 2:
+			titleRow.setAttribute('data-level', 'medium')
+			titleRow.classList.add('colorMedium')
+			break
+		case 3:
+			titleRow.setAttribute('data-level', 'hard')
+			titleRow.classList.add('colorHard')
+			break
 	}
 }
 
@@ -81,6 +86,5 @@ const startCreate = () => {
 		dataObjectTable(listWords)
 	}
 }
-
 
 document.addEventListener('DOMContentLoaded', startCreate)
